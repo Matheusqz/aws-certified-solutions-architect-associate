@@ -68,11 +68,18 @@ Whenever you restore either an Automatic Backup or a manual Snapshot, the restor
 
 ### Encryption at Rest
 
-Encryption at Rest is supported for MySQL, Oracle, SQL Server, PostgreSQL, MariaDB e Aurora. Encryption is done using the AWS Key Management Service (KMS). Once
+Encryption at Rest is supported for MySQL, Oracle, SQL Server, PostgreSQL, MariaDB e Aurora. Encryption is done using the AWS Key Management Service (KMS). Once your RDS instance is encrypted, the data stored at rest in the underlying storage is encrypted, as are its automatic backups, read replicas and snapshots.
 
 ### Multi-AZ
 
+Multi-AZ allows you to have an exact copy of your production database in another Availability Zone. AWS handles the replication for you, so when your production database is written to, this write will automatically be synchronized to the stand by database.
+In the event of planned database maintennance, DB Instance failure, or an Avalability Zone failure, Amazon RDS will automatically failover to the standby so that database operations can resume quickly without administrative intervention.
+
+**THIS IS FOR DISASTER RECOVERY ONLY** it is nho primarily used for improving performance. For performance improvement, you nedd Read Replicas.
+
 ### Read Replicas
+
+
 
 ## DynamoDB
 
