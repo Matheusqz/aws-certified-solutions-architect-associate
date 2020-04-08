@@ -176,6 +176,30 @@ Also there will be charged for Backups and Data Transfer (only within a VPC, not
 
 ## Aurora
 
+Amazon Aurora is a MySQL and PostgreSQL-compatible relational database engine that combines the speed and availability of high-end commercial databases with the simplicity and cost-effectiveness of open source databases. Amazon aurora provides up to five times better performance that MySQL and three times better than PostgreSQL databases at a much lower price point, whilst delivering similar performance and availability.
+
+### Things to Know about Aurora
+
+- Start with 10 GB, Savles in 10GB increments to 64TB (storage autoscaling)
+- Compute resources can scale up to 22vCPUs and 244GB of Memory
+- 2 copies of your data is contained in each availability zone, with minimum of 3 availability zones (6 copies of your data).
+
+### Scaling Aurora
+
+Designed to transparently handle the loss of up two copies of data without affecting database write availability and up to three copies without affecting read availability.
+Aurora storage is also self-healing. Datablocks and disks are continuously scanned for errors and repaired automatically.
+
+### Aurora Replicas
+
+- Aurora Replicas (currenctly 15)
+- MySQL Read Reaplicas (currently 5)
+
+### Backups
+
+- Automated backups are always enabled on Amazon AuroraDB instances. Backups do not impact database performance.
+- You can also take snapshots with Aurora. This also does not impact on performance.
+- You can share Aurora Snapshots with other AWS Accounts.
+
 ## Elasticache
 
 ### Memchached
