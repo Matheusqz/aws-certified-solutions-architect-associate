@@ -77,11 +77,43 @@ In the event of planned database maintennance, DB Instance failure, or an Avalab
 
 **THIS IS FOR DISASTER RECOVERY ONLY** it is nho primarily used for improving performance. For performance improvement, you nedd Read Replicas.
 
+#### Available for
+
+- SQL Server
+- Oracle
+- MySQL SErver
+- PostgreSQL
+- MariaDB
+
+**TRICK, NOT Aurora** Aurora have Multi-AZ on by nature.
+
 ### Read Replicas
 
+Read Replicas allow you to have a read-only copy of your production database. This is achieved by using Asynchronous replication from the primary RDS instance to the read replica. You use read replicas primarily for very read-heavy database workloads.
 
+#### Available for
+
+- Oracle
+- MySQL SErver
+- PostgreSQL
+- MariaDB
+- Aurora
+
+#### Things to Know about Read Replicas
+
+- Used for scaling, not for DR!
+- Must have automatic backups turned on in order to deploy a read replica.
+- You can have up to 5 read replica copies of any database.
+- You can have read replicas of read replicas (but watch out for latency)
+- Each read replica will have its own DNS end point
+- You can have read replicas that have Multi-AZ
+- You can create read replicas of Multi-AZ source databases
+- Read replicas can be promoted to be their own databases. This breaks the replication.
+- You can have a read replica in a second region
 
 ## DynamoDB
+
+Amazon DynamoDB is a fast and flexible NoSQL database service for all applications that need consistent, single-digit millisecond latency at any scale. It is a fully managed database and supports both document and key-value data models. Its flexible data model and realiable performance make it a great fit for mobile, web, gaming, ad-tech, IoT and many other applications.
 
 ## Redshitf
 
