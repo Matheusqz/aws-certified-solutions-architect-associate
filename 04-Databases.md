@@ -200,10 +200,22 @@ Aurora storage is also self-healing. Datablocks and disks are continuously scann
 - You can also take snapshots with Aurora. This also does not impact on performance.
 - You can share Aurora Snapshots with other AWS Accounts.
 
-## Elasticache
+## ElastiCache
 
-### Memchached
+ElastiChache is a web service that makes it easy to deploy, operate and scale an in-memory cache in the cloud. The service improves the performance of web applications by allowing you to retrieve information from fast, managed, in-memory caches, instead of relying entirely on slower disk-based databases.
 
-### Redis
+### Memchached vs Redis
+
+| Requirement | Memchached | Redis |
+|-------------|------------|-------|
+| Simple Cache to Offload DB | Yes | Yes |
+| Ability to scale horizonlally | Yes | Yes |
+| Multi-threaded performance | Yes | No |
+| Advanced data types | No | Yes |
+| Ranking/Sorting data sets | No | Yes |
+| Pub/Sub Capabilities | No | Yes |
+| Persistence | No | Yes |
+| Multi-AZ | No | Yes |
+| Bachup & Restore Capabilities | No | Yes |
 
 # Summary
