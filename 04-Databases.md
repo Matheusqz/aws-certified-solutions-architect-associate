@@ -42,9 +42,33 @@ Elesticache supports two open-source in-memory caching engines:
 
 - RDS runs on virtual machines
 - You canot log in those operating systeams however
-- 
+- Patching of the RDS Operating System and DB is Amazon's responsibility
+- RDS is NOT serverless
+- Aurora Serveless IS Serverless
 
 ### Backups
+
+There are two different types of BAckups for RDS:
+- Automated Backups
+- Database Snapshots
+
+#### Automated Backups
+
+Allow you to recover your database to any point in time within a "retention period". The retention period can be between one and 35 days. Automated Backups will take a full daily snapshot and will also store transaction logs throughout the day. When you do a recovery, AWS will first choose the most recent daily back up and then apply transaction logs throughout the day. This allows you to do a point in time recovery down to a second, within the retention period.
+Automated Backups are enabled by default. The backup data in stored in S3 and you get free storage space equal to the size of your database. So if you have an RDS instance of 10 Gbs, you will get 10Gb worth of storage.
+Backups are taken within a defined window. During the backup window, storage I/O may be suspended while your data is being backed up and you may experience elevated latency.
+
+#### Database Snapshots
+
+DB Snapsshots are done manually (ie they are user initiated). They are stored even after you delete the original RDS instance, unlike automated backups.
+
+#### Restoring Backups
+
+Whenever you restore either an Automatic Backup or a manual Snapshot, the restored version of the database will be a new RDS instance with a new DNS endpoint.
+
+### Encryption at Rest
+
+Encryption at Rest is supported for MySQL, Oracle, SQL Server, PostgreSQL, MariaDB e Aurora. Encryption is done using the AWS Key Management Service (KMS). Once
 
 ### Multi-AZ
 
