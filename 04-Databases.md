@@ -133,6 +133,47 @@ A strongly consistent read returns a result that reflects all writes that receiv
 
 ## Redshitf
 
+Amazon Redshitf is fast and powerfull, fully managed, petabyte-scale data warehouse service in the cloud. Customers can start small for just $0.25 per hour with no commitments or upfront cost and scale to a petabyte or more for $1,000 per terabyte per year, less than tenth of most other data warehousing solutions.
+
+### Redshift Configuration
+
+- Single Node (160GB)
+- Multi-Node
+  - Leader Node: manages client connections and receives queries
+  - Compute Node: store data and perform queries and computations. Up to 128 Compute Nodes.
+  
+### Advanced Compression
+
+Columnar data stores can be compressed much more than row-based data stores because similar data is sored sequentially on disk. Amazon Redshift employs multiple compression techniques and can often achieve significant compression relative to traditional relational data stores. In addition, Amazon Redshift doesnot require indexes or materialized views and so uses less space than traditional relational database systems. When loading data intro an empty table, amazon Redshift automatically samples your data and delects the most appropriate compression scheme.
+
+### Massively Parallel Processing (MPP)
+
+Amazon Redshift automatically distributes data and query load across all nodes. Amazon Redshift makes it easy to add nodes to your data warehouse and enables you to maintain fast query performance as your data warehouse grows.
+
+### Backups
+
+- Enabled by default with a 1 day retention period
+- Maximum retention period is 35 days
+- Redshift always attempts to maintain at least three copies of your date (the original and replica on the compute nodes and a backup in Amazon S3)
+- Redshift can also asynchronously replicate your snapsshots to S3 in another region for disaster recovery
+
+### Pricing
+
+Compute Node Hours (total number of hours you run across all your compute nodes for the billing period. You are billed for 1 unit per node hour, so a 3 node data warehouse cluster running persistently for an entire month would incur 2,160 instance hours. You will not be charged for leader node hours, only compute nodes will incur charges)
+Also there will be charged for Backups and Data Transfer (only within a VPC, not outside it)
+
+### Security Considerations
+
+- Encrypted in transit using SSL
+- Encrypted at rest using AES-256 encryption
+- By default ReadShift takes care of key management
+- You can manage your own keys through HSM or AWS KSM
+
+## Availability
+
+- Currently only available in 1 AZ
+- Can restore snapsshots to new AZs in the event os an outage
+
 ## Aurora
 
 ## Elasticache
