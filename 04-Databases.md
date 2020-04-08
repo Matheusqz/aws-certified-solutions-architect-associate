@@ -125,9 +125,11 @@ Amazon DynamoDB is a fast and flexible NoSQL database service for all applicatio
   
 #### Eventual Consistent Reads
 
-Consistency across all copies of data is usually reached within a second. Repeatin
+Consistency across all copies of data is usually reached within a second. Repeating a read after a short time should return the update date (best read performance).
 
 #### Strong Consistent Reads
+
+A strongly consistent read returns a result that reflects all writes that received a successful response prior to the read.
 
 ## Redshitf
 
