@@ -85,7 +85,7 @@ In the event of planned database maintennance, DB Instance failure, or an Avalab
 - PostgreSQL
 - MariaDB
 
-**TRICK, NOT Aurora** Aurora have Multi-AZ on by nature.
+**TRICK, NOT Aurora** - Aurora have Multi-AZ on by nature.
 
 ### Read Replicas
 
@@ -114,6 +114,20 @@ Read Replicas allow you to have a read-only copy of your production database. Th
 ## DynamoDB
 
 Amazon DynamoDB is a fast and flexible NoSQL database service for all applications that need consistent, single-digit millisecond latency at any scale. It is a fully managed database and supports both document and key-value data models. Its flexible data model and realiable performance make it a great fit for mobile, web, gaming, ad-tech, IoT and many other applications.
+
+### Basics of DynamoDB
+
+- Stored on SSD storage
+- Spread across 3 geographically distinct data centres
+- Two Different Types of Reads Mods:
+  - Eventual Consistent Reads (Default)
+  - Strong Consistent Reads
+  
+#### Eventual Consistent Reads
+
+Consistency across all copies of data is usually reached within a second. Repeatin
+
+#### Strong Consistent Reads
 
 ## Redshitf
 
