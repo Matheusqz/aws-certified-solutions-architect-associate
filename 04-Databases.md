@@ -219,3 +219,12 @@ ElastiChache is a web service that makes it easy to deploy, operate and scale an
 | Bachup & Restore Capabilities | No | Yes |
 
 # Summary
+
+- RDS = OLTP
+- RDS can be SQL server, MySQL, PostgreSQL, Oracle, Aurora, MariaDB
+- DynamoDB - NoSQL
+- RedShift = OLAP
+- Elasticached, Memchached (Multi-threaded performance) and Redis (Ad type, Rank/Sort, Pub/Sub, Multi-AZ, Restore)
+- RDS runs on virtual machines, no ssh allowed, patching of RDS OS and DB is Amazon's responsibility
+- RDS NOT Serveless, only AURORA IS Serverless
+- RDS have two type of Backups, Automated and Snapshots
