@@ -225,6 +225,28 @@ ElastiChache is a web service that makes it easy to deploy, operate and scale an
 - DynamoDB - NoSQL
 - RedShift = OLAP
 - Elasticached, Memchached (Multi-threaded performance) and Redis (Ad type, Rank/Sort, Pub/Sub, Multi-AZ, Restore)
-- RDS runs on virtual machines, no ssh allowed, patching of RDS OS and DB is Amazon's responsibility
+- **RDS** runs on virtual machines, no ssh allowed, patching of RDS OS and DB is Amazon's responsibility
 - RDS NOT Serveless, only AURORA IS Serverless
 - RDS have two type of Backups, Automated and Snapshots
+- RDS Read Reaplicas:
+  - Multi-AZ
+  - Increase PERFORMANCE
+  - Must have backups turned on
+  - Can be in different regions
+  - Can be MySQL, PostgreSQL, MariaDB, Oracle, Aurora
+  - Can be promoted to master, this will break the Read Reaplica
+- RDS Multi-AZ is used for DISASTER RECOVER and you can force a failover from one AZ to another by rebooting the RDS instance
+- Encrytion at reas is supported for MySQL, Oracle, SQL Server, PostgreSQL, MariaDB & Aurora. Encryption is done using the AWS KMS. Once your instance is encrypted, the data stores at rest in the underlying storage is encrypted, as are its automated backups, read replicas and snapshots.
+- **DynamoDB** stored on SSD storage, Spread Across 3 geographically distinct data centres
+- DaynamoDB can have:
+  - Eventual Consistent Reads (Default)
+  - Strongly Consistent Reads
+- **Redshift** (AWS BI), only at one AZ, backups (1 day by default, max of 35 days) always try to maintain at least three copies of your data (the original and a replica in the compute nodes and a extra in S3).
+- Readshift can also asynchronously replicate your snapsshots to S3 in another region for disaster recovery.
+- **Aurora** 2 copies of your data is contained in each availability zone, with minimum of 3 availability zones. Total 6 copies of your data.
+- Yoy can share Aurora Snapshots with other AWS accounts.
+- 2 types of reclicas available. Aurora Replicas and MySQL replicas. Automated failover is only available with Aurora Replicas.
+- Aurora has automated backups turned on by default. You can also take snapshots with Aurora. You can share these snapshots with other AWS accounts.
+- **Elasticache** use to increase databases and web application performance
+  - Redis is Multi-AZ, can backups and restored
+  - Memcached use if you need scale horizontally
