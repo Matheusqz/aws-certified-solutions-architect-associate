@@ -4,7 +4,7 @@ the origin of the name comes from route 53 that crosses the USA and the service 
 
 ## DNS Intro
 
-DNS is used to convert human friendlyy domain names (http://acloud.guru) into an Internet Protocol (IP) address (such as http://82.124.53.1).
+DNS is used to convert human friendlyy domain names (acloud.guru) into an Internet Protocol (IP) address (such as 82.124.53.1).
 IP Addresses are used by conputers to identify each other on the network. IP addresses commonly come in 2 different forms, IPv4  and IPv6.
 
 ### Top Level Domains
@@ -27,13 +27,30 @@ Ther are used by Top level domain server to direct traffic to the content DNS se
 
 Request -> Top Level Domain Server (.com) -> NS Record -> SOA Record (thet have the DNS record for the request)
 
+#### Time to Live (TTL)
+
+The lenght that a DNS record is cached on either the resolving Server or the users own local PC is equal to the value of the TTL in seconds. The lower TTL, the fast changes to DNS records take to propagate throughut the internet.
+
 ### Types of DNS Records
 
 #### A Records
 
 An "A" record is the fundamental type of DNS record. The "A" in A record stands for "Address". The A record is used by a computer to translate the name of the domain to an IP address. For example google.com might point to 123.12.12.2.
 
-#### 
+#### Canonical NAME (CName)
+
+CName can be used to resolve one domain name to another. For example, you may have a mobile website with the domain name m.acloud.guru that used for when users broese to your domain name on their mobile devices. You may also want the name mobile.acloud.guru to resolve to this same address.
+
+#### Alias Records
+
+Alisas records are used to map record sets in your hosted zone to Elastic Load Balancers, CloudFront distributions or S3 buckets that are configured as websites.
+Alias records work like a CNAME record in that you can map one DNS name to another target DNS name.
+
+##### Difference between an Alias Record and CNAME
+
+- Alias record can be naked domain name, without the 
+- CName can not be a naked domain name.
+PS: Always prefer create a Alias Record over a CName
 
 ## Route53
 
