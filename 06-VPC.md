@@ -88,9 +88,19 @@ VPC Flow Logs is a feature that enables you to capture information abount the IP
   - DHCP traffic
   - Traffic to the reserved IP address for the default VPC router
 
-## Bastions
+## Bastions Host
+
+A bastion host is special purpose computer on a network specifically designed and configured to withstand attacks. The computer generally hosts a single application, for example a proxy server, and all other services are removed or limited to reduce the threat to the computer. It is hardened in this manner primarily due to its location and purpose, which is either on the outside of a firewall or in a demilitarized (DMZ) and usually involves access from untrusted networks or computers.
+
+### IMG Basiont in action
+
+- A NAT Gateway or NAT instances is used to provide internet traffic to EC2 instances in a private subnets
+- A Bastion is used to securely administer EC2 instances (Using SSH or RDP). Bastions are called Jump Boxes in Australia
+- You cannot use a NAT Gateway as a Bastion host
 
 ## Direct Connect
+
+
 
 ## Setting Up a VPN Over a Direct Connect Connection
 
