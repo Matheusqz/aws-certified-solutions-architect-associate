@@ -38,7 +38,28 @@ Additionally, you can create a Hardware Virtual Private Network (VPN) connection
 
 ## Network Address Translation (NAT)
 
-## Access Control Lists (ACL)
+### IMG NAT 
+
+- When creating a NAT instance, Disable Source/Destination Check on the instance
+- NAT instance must be in a public subnet
+- There must be a route out of the private subnet to the NAT instance in order this to work
+- The amount of traffic that NAT instances can support depends on the instance size. If you are bottlenecking, increase the instance size.
+- You can create high availability using Autoscaling Groups, multiple subnets in different AZs and a script to automate failover
+- NAT instances are always behind a security group
+- NAT instances are redundant inside the Availability Zone
+- Preferred by the enterprise
+- Starts at 5Gbps and scales currently to 45Gbps
+- No need to patch
+- Not associated with security groups
+- Automatically assinged a public ip address
+- Remember to update your route tables
+- No need to disable Source/Destination Checks
+
+### NAT Gateways
+
+If you have resources in mutiple Availability Zones and they share one NAT gateway, in the event that the NAT gateway's AZ is down, resources in the others AZ lose internet access. To create an AZ-independent architecture , create a NAT gateway in each AZ and configure your routing to ensure that resources use the NAT gateway in the same AZ.
+
+## Network Access Control Lists (ACL)
 
 ## Custom VPC and ELBs
 
