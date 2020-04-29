@@ -113,12 +113,60 @@ AWS Direct Connect is a cloud service solution that makes it easy to establish a
 - Useful for high throughput workloads (ie lots of network traffic)
 - Or if you need a stable and reliable secure connection
 
-
 ## Setting Up a VPN Over a Direct Connect Connection
 
-
+- Create a virtual interface in the Direct Connect console. This is a public Virtual Interface
+- Go to the VPC console and then to VPN connections. Create a customer Gateway
+- Create a Virtual Private Gateway
+- Attach the virtual private Gateway to the desired VPC
+- Select VPN Connections and create new VPN Connection
+- Select the Virtual Private Gateway and the Customer Gateway
+- Once the VPN is available, set up the VPN on the customer gateway or firewall.
 
 ## Global Accelerator
+
+AWS Global Accelerator is a service in which you create accelerators to improve availability and performance of your applications for local ana global users
+
+Global Accelerator directs traffic to optimal endpoints over the AWS global network. This improves the availability and performance of your internet applications that are used a global audience.
+
+### Components
+
+#### Static IP addresses
+
+By defafaul, Global Accelarator provides you with two static IP addresses that you associate with your accelerator. Alternatively, you can bring your own.
+
+#### Accelerator
+
+An accelerator directs traffic to optimal endpoints over the AWS global network to improve the availability and performance of your internet applications. Each accelerator includes one or more listeners
+
+#### DNS Name
+
+Global Accelerator assingns each accelerator a default Domain Name Systeam (DNS) name - similiar to a123456789abcdef.awsglobalaccelerator.com - that points to the static IP addresses that Global Accelerator assings to you.
+Depending in the use case, you can use your accelerator static IP addresses or DNS name to route traffic to your accelerator or set up DNS records to route traffic using your own custom domain name.
+
+#### Network Zone
+
+A network zone services the static IP addresses for accelerator from a unique IP subnet. Similiar to an AWS AZ, a network zone is an isolated unit with its own set of physical infrastructure
+When you configure an accelerator, by defaul, Global Accelerator allocates two IPv4 addresses for it. If one IP addresss from a network zone becomes unavailable due to IP address blockuing by certain cliente network or network disruptions, client applications can retry on the healthy static IP address from the other isolated network zone.
+
+#### Listener
+
+A listener processes inbound connections from clients to Global Accelerator, based on the port (or port range) and protocol that you configure. Global Accelerator suports both TCP and UDP protocols.
+Each listerer has one or more endpoint groups associated with it, and traffic is forwarded to endpoints in one of the groups.
+You associate endpoint groups with listerners by specifing the Regions that you want to distribute traffic to traffic is distributed to optimal endpoints within the endpoint groups associated with a listener.
+
+#### Endpoint Group
+
+Each endpoint group is associated with a specific AWS Region.
+Endpoint groups include one or more endpoints in the Region.
+You can increase or reduce the percentage of traffic that would be otherwise directed to an endpoint group by adjusting a setting called traffic dial.
+The traffic dial lets you easily do performance testing or blue/green deployment testing for new releases across different AWS Regions, for example.
+
+#### Endpoint
+
+Endpoint can be Network Load Balacncers, Applications Load Balancers, EC2 instances or Elastic IP addressses.
+An applications Load Balancer endpoint can be an internet-facing or internal. Traffic is routed to endpoints based on configuration options that you choose, such as endpoint weights.
+For each endpoint, you can configure weights, which are numbres that you can use to specify the proportion of traffic to route to each one. This can be useful, for example, todo performance testing within a Region.
 
 ## VPC End Points
 
