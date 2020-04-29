@@ -36,6 +36,13 @@ Additionally, you can create a Hardware Virtual Private Network (VPN) connection
 
 ## Build a Custom VPC
 
+- When you create a VPC a default Route Table, Network Access Control List (NACL) and a default Security Group are created automatically
+- It won't create any subnets, nor will it create a default internet gateway
+- AZ are randomized for each account
+- Amazon always reserve 5 IP addesses within your subnets
+- You can olny have 1 internet Gateway per VPC
+- Secutiry groups can't span VPCs
+
 ## Network Address Translation (NAT)
 
 ### IMG NAT 
@@ -100,9 +107,16 @@ A bastion host is special purpose computer on a network specifically designed an
 
 ## Direct Connect
 
+AWS Direct Connect is a cloud service solution that makes it easy to establish a dedicated network connection from your premises to AWS. Using AWS Direct Connect, you can establish private connectivity between AWS and your datacenter, office or colocation environment, which in many cases can reduce your network costs, increase bandwidth throughput and provide a more consistent network experience than internet-based connections.
+
+- Direct Connect directly connects your data center to AWS
+- Useful for high throughput workloads (ie lots of network traffic)
+- Or if you need a stable and reliable secure connection
 
 
 ## Setting Up a VPN Over a Direct Connect Connection
+
+
 
 ## Global Accelerator
 
