@@ -168,6 +168,23 @@ Endpoint can be Network Load Balacncers, Applications Load Balancers, EC2 instan
 An applications Load Balancer endpoint can be an internet-facing or internal. Traffic is routed to endpoints based on configuration options that you choose, such as endpoint weights.
 For each endpoint, you can configure weights, which are numbres that you can use to specify the proportion of traffic to route to each one. This can be useful, for example, todo performance testing within a Region.
 
+### Exam Tips
+
+- AWS Global Accelerator is a service in which you create accelerators to improve availability and performance of your applications for local and global users.
+- You are assingned two IP addresses (or alternatively you can bring your own)
+- You can control traffic using traffic dials. This is done within the endpoint gorup.
+
 ## VPC End Points
 
-# Summary
+A VPC endpoint enables you to privately connect your VPC to supported AWS services and VPC endpoint services powered by privatelink without requiring an internet gateway, NAT device, VPN connection or AWS Direct Connect. Instances in your VPC do not require public IP addresses to communicate with resources in the service. Traffic between your VPC and the other service does not leave the AMAzon network.
+Endpoints are virtual devices. They are horizontally scaled, redundant and highly available VPC components that allow communication betwwe instances in your VPC and services without imposing availability risks or bandwidth constraints on your network traffic.
+
+### Types of VPC EndPoints
+
+#### Interface endpoints
+
+an interface end point is an elastic network interface with a private IP address that serves as an entry point for traffic destined to a supported service.
+
+#### Gateway EndPoints
+
+Suporte by S3 and DynamoDB
