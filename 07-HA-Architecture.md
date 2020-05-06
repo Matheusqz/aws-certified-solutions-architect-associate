@@ -38,6 +38,16 @@ Load Balances have theis own DNS name. You are never given an IP address.
 
 #### Sticky Sessions
 
+Classic Load Balancer routes each request independetly to the registered EC2 instance with the smallest load. Sticky sessions allow you bind a user's session to a specific EC2 instance. This ensures that all requsts from the user during the session are sent to the same instance. You can enable Stick Sessions for Application Load Balancers as well, but the traffic will be sent at the Target Group Level.
+
+#### Cross Zone Load Balancing
+
+The traffic can be acroos AZ to balance to all EC2.
+
+#### Path Patterns
+
+You can create a listener with rues to forward requests based on the URL path. This is known as path-based routing. If you are running microservices, you can route traffic to multiple back-end services using path-based routing. For example, you can route general requests to one target group and requests to render images to another target group.
+
 ## Autoscaling
 
 ### Autoscaling Groups Lab
